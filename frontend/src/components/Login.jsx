@@ -104,7 +104,10 @@ function Login() {
           />
           <div className="flex items-center justify-center">
           <Button variant="contained" type="submit" sx={{
-              backgroundColor: "#616161"
+              backgroundColor: "#616161",
+              "&:hover": {
+                backgroundColor: "#4f4f4f",
+              },
             }}>
             Login
           </Button>

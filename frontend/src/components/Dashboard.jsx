@@ -11,7 +11,7 @@ function Dashboard() {
   useEffect(() => {
     const loggedIn = sessionStorage.getItem("loggedIn");
     if (!loggedIn) {
-      navigate("/login");
+      navigate("/dashboard");
     }
   }, [navigate]);
 

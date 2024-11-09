@@ -153,6 +153,9 @@ function Register() {
               type="submit"
               sx={{
                 backgroundColor: "#616161",
+                "&:hover": {
+                  backgroundColor: "#4f4f4f",
+                },
               }}
             >
               Login
