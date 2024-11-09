@@ -10,6 +10,9 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import GoogleImage from "../assets/images/google.svg";
+import FacebookImage from "../assets/images/facebook.svg";
+import MicImage from "../assets/images/microsoft.svg";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -68,23 +71,28 @@ function Register() {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "5%",
-      }}
-    >
-      <Container maxWidth="sm">
+    <div className="flex justify-center w--full items-center h-screen">
+      <div className="w-60">
         <form onSubmit={handleSubmit}>
-          <Typography
-            style={{ marginBottom: "20px" }}
-            variant="h2"
-            component="h2"
-          >
-            Sign up
-          </Typography>
+          <p className="justify-center grid font-bold text-[26px]">Sign up</p>
+          <div className="flex justify-center items-center">
+            <img
+              src={FacebookImage}
+              className="w-[24px] h-[24px] m-2"
+              alt="Facebook"
+            />
+            <img
+              src={GoogleImage}
+              className="w-[28px] h-[28px] m-2"
+              alt="Google"
+            />
+            <img src={MicImage} className="w-[24px] h-[24px] m-2" alt="Mic" />
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="w-20 h-0.5 m-1 bg-[#AFAFAF] rounded-primary"></div>
+            <p className=" text-[#AFAFAF]">or</p>
+            <div className="w-20 h-0.5 m-1 bg-[#AFAFAF] rounded-primary"></div>
+          </div>
           {apiResponse && (
             <Alert
               style={{ marginBottom: "20px" }}
@@ -99,7 +107,7 @@ function Register() {
             onChange={handleUsernameChange}
             variant="filled"
             id="filled-basic"
-            label="Username"
+            label="Name"
             fullWidth
             style={{ marginBottom: "20px" }}
           />
@@ -109,7 +117,7 @@ function Register() {
             onChange={handleEmailChange}
             variant="filled"
             id="filled-basic"
-            label="Email address"
+            label="Email"
             fullWidth
             style={{ marginBottom: "20px" }}
           />
@@ -139,19 +147,23 @@ function Register() {
               Generate password
             </Button>
           </div>
-          <Button variant="contained" type="submit">
-            Sign up
-          </Button>
-          <Typography
-            variant="body1"
-            gutterBottom
-            style={{ marginTop: "20px" }}
-          >
+          <div className="flex items-center justify-center">
+            <Button
+              variant="contained"
+              type="submit"
+              sx={{
+                backgroundColor: "#616161",
+              }}
+            >
+              Login
+            </Button>
+          </div>
+          <p className="text-sm mt-2">
             Do You have an account? <Link href="/login">Sign in</Link>
-          </Typography>
+          </p>
         </form>
-      </Container>
-    </Box>
+      </div>
+    </div>
   );
 }
 
