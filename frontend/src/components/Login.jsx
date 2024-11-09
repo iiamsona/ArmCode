@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import GoogleImage from '../assets/images/google.svg'
+import FacebookImage from '../assets/images/facebook.svg'
+import MicImage from '../assets/images/microsoft.svg'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -55,17 +55,20 @@ function Login() {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "5%",
-      }}
-    >
-      <div className="w-50">
+  <div className="flex justify-center w--full items-center h-screen">
+      <div className="w-60">
         <form onSubmit={handleSubmit}>
-          <p className="font-bold text-[36px]">Sign in</p>
+          <p className="justify-center grid font-bold text-[26px]">Sign in</p>
+          <div className="flex justify-center items-center">
+          <img src={FacebookImage} className="w-[24px] h-[24px] m-2" alt="Facebook" />
+          <img src={GoogleImage} className="w-[28px] h-[28px] m-2" alt="Google" />
+          <img src={MicImage} className="w-[24px] h-[24px] m-2" alt="Mic" />
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="w-20 h-0.5 m-1 bg-[#AFAFAF] rounded-primary"></div>
+            <p className=" text-[#AFAFAF]">or</p>
+            <div className="w-20 h-0.5 m-1 bg-[#AFAFAF] rounded-primary"></div>
+          </div>
           {error && (
             <Alert style={{ marginBottom: "20px" }} severity="error">
               {error}
@@ -77,9 +80,10 @@ function Login() {
             onChange={handleEmailChange}
             variant="filled"
             id="email"
-            label="Email address"
+            label="Email"
             fullWidth
             style={{ marginBottom: "20px" }}
+            className="rounded-primary"
           />
           <TextField
             type={showPassword ? "text" : "password"}
@@ -98,15 +102,19 @@ function Login() {
               ),
             }}
           />
-          <Button variant="contained" type="submit">
+          <div className="flex items-center justify-center">
+          <Button variant="contained" type="submit" sx={{
+              backgroundColor: "#616161"
+            }}>
             Login
           </Button>
-          <p>
+          </div>
+          <p className="text-sm mt-2">
             Don't have an account? <Link href="/register">Sign up</Link>
           </p>
         </form>
       </div>
-    </Box>
+      </div>
   );
 }
 
